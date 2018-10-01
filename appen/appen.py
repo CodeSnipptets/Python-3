@@ -19,6 +19,7 @@ def read():
         filename = input("Enter file name: ")
         target = open(filename, "r")
         readfile = target.read()
+        print(" ")
         print(readfile)
     except Exception as e:
         print("There was a problem: %s" % (e))
@@ -38,10 +39,10 @@ def write():
         target = open(filename, "a")
         while True:
             append = input()
+            if append.lower() == "menu":    # Added this here to avoid appending the word "menu"
+                break
             target.write(append)
             target.write("\n")
-            if append.lower() == "menu":
-                break
     except Exception as e:
         print("There was a problem: %s" % (e))
 
